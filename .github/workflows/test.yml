@@ -13,5 +13,4 @@ jobs:
          rosdep update
          rosdep install -i --from-path src --rosdistro humble -y
          colcon build
-         /bin/sh -c "source install/setup.bash"
          bash -xv ./src/mypkg/test/test.bash /root
