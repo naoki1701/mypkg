@@ -8,6 +8,13 @@ jobs:
     container: ryuichiueda/ubuntu22.04-ros2:latest
     steps:
       - uses: actions/checkout@v2
+      - name: Prepare workspace
+        run: |
+          # Check if the directory exists
+          if [ ! -d "/github/home/ros2_ws" ]; then
+            # If not, create the directory
+            mkdir -p /github/home/ros2_ws
+          fi
       - name: build and test
         run: |
           rsync -av ./ /root/ros2_ws/src/mypkg/
